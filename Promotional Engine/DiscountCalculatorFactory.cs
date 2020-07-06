@@ -11,7 +11,8 @@ namespace PromotionalEngine
         {
             DiscountCalculators = new Dictionary<string, DiscountCalculator> {
                 {"A",new DiscountCalculatorForProductA() },
-                
+                {"B",new DiscountCalculatorForProductB() },
+
             };
         }
 
