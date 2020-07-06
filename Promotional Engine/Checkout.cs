@@ -20,9 +20,12 @@ namespace PromotionalEngine
             var calForB = DiscountCalculatorFactory.GetDiscountCalculator("B");
             var totalPriceOfProductB = calForB.GetPriceFor(cart.Products);
 
+            var calForCD = DiscountCalculatorFactory.GetDiscountCalculator("C");
+            var totalPriceOfProductCD = calForCD.GetPriceFor(cart.Products);
+
+            return totalPriceOfProductA + totalPriceOfProductB + totalPriceOfProductCD;
 
 
-            return totalPriceOfProductA + totalPriceOfProductB;
         }
 
     }
