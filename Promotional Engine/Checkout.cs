@@ -14,11 +14,15 @@ namespace PromotionalEngine
         public double CalculateCartPrice(Cart cart)
         {
             var calForA = DiscountCalculatorFactory.GetDiscountCalculator("A");
+
             var totalPriceOfProductA = calForA.GetPriceFor(cart.Products);
 
-          
+            var calForB = DiscountCalculatorFactory.GetDiscountCalculator("B");
+            var totalPriceOfProductB = calForB.GetPriceFor(cart.Products);
 
-            return totalPriceOfProductA ;
+
+
+            return totalPriceOfProductA + totalPriceOfProductB;
         }
 
     }
