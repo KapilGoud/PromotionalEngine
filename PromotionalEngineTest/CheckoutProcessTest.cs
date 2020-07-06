@@ -218,6 +218,84 @@ namespace Tests
             Assert.AreEqual(15, result);
 
         }
+        [Test]
+        public void TestForProductCDItem()
+        {
+            var cart = new Cart
+            {
+                Products = new List<Product> {
+                    new Product{Id=4,Name="D",Price=15},
+                    new Product{Id=3,Name="C",Price=20}
+            }
+            };
+
+            var checkout = new Checkout();
+            var result = checkout.CalculateCartPrice(cart);
+            Assert.AreEqual(30, result);
+
+        }
+
+        [Test]
+        public void TestForProductCDItem2()
+        {
+            var cart = new Cart
+            {
+                Products = new List<Product> {
+                    new Product{Id=4,Name="D",Price=15},
+                    new Product{Id=3,Name="C",Price=20},
+                    new Product{Id=3,Name="C",Price=20},
+            }
+            };
+
+            var checkout = new Checkout();
+            var result = checkout.CalculateCartPrice(cart);
+            Assert.AreEqual(50, result);
+
+        }
+
+        [Test]
+        public void TestForProductCDItem3()
+        {
+            var cart = new Cart
+            {
+                Products = new List<Product> {
+                    new Product{Id=4,Name="D",Price=15},
+                    new Product{Id=4,Name="D",Price=15},
+                    new Product{Id=3,Name="C",Price=20},
+            }
+            };
+
+            var checkout = new Checkout();
+            var result = checkout.CalculateCartPrice(cart);
+            Assert.AreEqual(45, result);
+
+        }
+        [Test]
+        public void TestForProductABCD2Item()
+        {
+            var cart = new Cart
+            {
+                Products = new List<Product> {
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+                new Product {Id=4,Name="D",Price=15},
+                new Product {Id=3,Name="C",Price=20},
+
+            }
+            };
+
+            var checkout = new Checkout();
+            var result = checkout.CalculateCartPrice(cart);
+
+            Assert.AreEqual(280, result);
+
+        }
 
 
     }
