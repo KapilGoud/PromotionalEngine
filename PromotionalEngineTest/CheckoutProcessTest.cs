@@ -163,5 +163,31 @@ namespace Tests
             Assert.AreEqual(290, result);
 
         }
+
+        [Test]
+        public void TestForProductAandB2With6Item()
+        {
+            var cart = new Cart
+            {
+                Products = new List<Product> {
+                    new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 1, Name = "A", Price = 50 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+                new Product { Id = 2, Name = "B", Price = 30 },
+            }
+            };
+
+            var checkout = new Checkout();
+            var result = checkout.CalculateCartPrice(cart);
+
+            Assert.AreEqual(305, result);
+
+        }
+
+
     }
 }
